@@ -116,50 +116,45 @@
             echo '.content-slider { gap: ' . esc_attr($gap['mobile']) . '; flex-wrap: ' . esc_attr($flex_wrap['mobile']) . '; }';
             echo '}';
             echo '</style>';
-        
-            // Check if repeater items are defined
+
             if (!empty($settings['slider_items'])) {
                 foreach ($settings['slider_items'] as $item) {
                     echo '<div class="content-slider-item">';
-        
+
                     // Render image
-                    // Render image
-                    if (!empty($item['image']['url'])) {
-                        $image_url = $item['image']['url'];
+                    if (!empty($item['slider_image']['url'])) {
+                        $image_url = $item['slider_image']['url'];
                     } else {
                         $image_url = \Elementor\Utils::get_placeholder_image_src(); // Fallback to default Elementor image
                     }
                     echo '<div class="slider-image">';
                     echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($item['title']) . '">';
                     echo '</div>';
-
-        
+            
                     // Render title
                     if (!empty($item['title'])) {
                         echo '<h3 class="slider-title">' . esc_html($item['title']) . '</h3>';
                     }
-        
+            
                     // Render subtitle
                     if (!empty($item['sub_title'])) {
                         echo '<h4 class="slider-subtitle">' . esc_html($item['sub_title']) . '</h4>';
                     }
-        
+            
                     // Render description
                     if (!empty($item['description'])) {
                         echo '<p class="slider-description">' . esc_html($item['description']) . '</p>';
                     }
-        
+            
                     // Render button
                     if (!empty($item['button_text']) && !empty($item['button_link']['url'])) {
                         echo '<a href="' . esc_url($item['button_link']['url']) . '" class="slider-button" target="' . ( $item['button_link']['is_external'] ? '_blank' : '_self' ) . '">';
                         echo esc_html($item['button_text']);
                         echo '</a>';
                     }
-        
                     echo '</div>'; // Close content-slider-item
                 }
             }
-        
             echo '</div>'; // Close slider wrapper
         }
         
