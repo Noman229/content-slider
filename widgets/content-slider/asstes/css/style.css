@@ -1,0 +1,32 @@
+.content-slider {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.content-slider-item {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content-slider-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.content-slider-item .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.content-slider-item .button:hover {
+    background-color: #005885;
+}
