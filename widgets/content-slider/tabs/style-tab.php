@@ -16,7 +16,7 @@
         [
             'label' => esc_html__( 'Items Per Row', 'advance-widgets-for-elementor' ),
             'type' => \Elementor\Controls_Manager::NUMBER,
-            'min' => 2,
+            'min' => 1,
             'max' => 6,
             'step' => 1,
             'default' => 3,
@@ -88,7 +88,7 @@
                 'space-around' => 'Space Around',
                 'space-evenly' => 'Space Evenly',
             ],
-            'default' => 'space-between',
+            'default' => 'flex-start',
             'tablet_default' => 'center',
             'mobile_default' => 'flex-start',
         ]
@@ -141,16 +141,86 @@
                 ],
             ],
             'default' => [
-                'size' => 10,
+                'size' => 22,
                 'unit' => 'px',
             ],
             'tablet_default' => [
-                'size' => 8,
+                'size' => 15,
                 'unit' => 'px',
             ],
             'mobile_default' => [
-                'size' => 5,
+                'size' => 7,
                 'unit' => 'px',
+            ],
+        ]
+    );
+
+    // Card Background Color
+    $this->add_control(
+        'card_background_color',
+        [
+            'label'     => esc_html__( 'Background Color', 'advance-widgets-for-elementor' ),
+            'type'      => \Elementor\Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .content-slider-item' => 'background-color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Card Border
+    $this->add_group_control(
+        \Elementor\Group_Control_Border::get_type(),
+        [
+            'name'      => 'card_border',
+            'label'     => esc_html__( 'Border', 'advance-widgets-for-elementor' ),
+            'selector'  => '{{WRAPPER}} .content-slider-item',
+        ]
+    );
+    // Card Border Radius
+    $this->add_responsive_control(
+        'card_border_radius',
+        [
+            'label'      => esc_html__( 'Border Radius', 'advance-widgets-for-elementor' ),
+            'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'selectors'  => [
+                '{{WRAPPER}} .content-slider-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Card Box Shadow
+    $this->add_group_control(
+        \Elementor\Group_Control_Box_Shadow::get_type(),
+        [
+            'name'      => 'card_box_shadow',
+            'label'     => esc_html__( 'Box Shadow', 'advance-widgets-for-elementor' ),
+            'selector'  => '{{WRAPPER}} .content-slider-item',
+        ]
+    );
+
+    // Card Padding
+    $this->add_responsive_control(
+        'card_padding',
+        [
+            'label'      => esc_html__( 'Padding', 'advance-widgets-for-elementor' ),
+            'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'selectors'  => [
+                '{{WRAPPER}} .content-slider-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Card Margin
+    $this->add_responsive_control(
+        'card_margin',
+        [
+            'label'      => esc_html__( 'Margin', 'advance-widgets-for-elementor' ),
+            'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'selectors'  => [
+                '{{WRAPPER}} .content-slider-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
         ]
     );
