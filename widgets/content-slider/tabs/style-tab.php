@@ -588,3 +588,247 @@
     );
 
     $this->end_controls_section();
+    
+    
+    /******************************* Description Styling *******************************/
+
+    // Description Styling
+    $this->start_controls_section(
+        'description_style',
+        [
+            'label' => esc_html__( 'Description', 'nk-addon' ),
+            'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    // Alignment
+    $this->add_control(
+        'description_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-right',
+                ],
+            ],
+            'default' => 'left',
+            'selectors' => [
+                '{{WRAPPER}} .slider-description' => 'text-align: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Text Color
+    $this->add_control(
+        'description_color',
+        [
+            'label' => esc_html__( 'Text Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#999999',
+            'selectors' => [
+                '{{WRAPPER}} .slider-description' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Typography
+    $this->add_group_control(
+        \Elementor\Group_Control_Typography::get_type(),
+        [
+            'name' => 'description_typography',
+            'label' => esc_html__( 'Typography', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-description',
+        ]
+    );
+
+    $this->end_controls_section();
+
+
+
+    /******************************* Button Styling *******************************/
+    // Button Styling
+    $this->start_controls_section(
+        'button_style',
+        [
+            'label' => esc_html__( 'Button', 'nk-addon' ),
+            'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    // Alignment
+    $this->add_control(
+        'button_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-right',
+                ],
+            ],
+            'default' => 'center',
+            'selectors' => [
+                '{{WRAPPER}} .slider-button' => 'text-align: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Typography
+    $this->add_group_control(
+        \Elementor\Group_Control_Typography::get_type(),
+        [
+            'name' => 'button_typography',
+            'label' => esc_html__( 'Typography', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-button',
+        ]
+    );
+
+    // Normal State
+    $this->start_controls_tabs('button_tabs');
+
+    $this->start_controls_tab(
+        'button_normal',
+        [
+            'label' => esc_html__( 'Normal', 'nk-addon' ),
+        ]
+    );
+
+    $this->add_control(
+        'button_text_color',
+        [
+            'label' => esc_html__( 'Text Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#ffffff',
+            'selectors' => [
+                '{{WRAPPER}} .slider-button' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'button_background_color',
+        [
+            'label' => esc_html__( 'Background Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#0073e6',
+            'selectors' => [
+                '{{WRAPPER}} .slider-button' => 'background-color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_tab();
+
+    // Hover State
+    $this->start_controls_tab(
+        'button_hover',
+        [
+            'label' => esc_html__( 'Hover', 'nk-addon' ),
+        ]
+    );
+
+    $this->add_control(
+        'button_hover_text_color',
+        [
+            'label' => esc_html__( 'Text Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#ffffff',
+            'selectors' => [
+                '{{WRAPPER}} .slider-button:hover' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'button_hover_background_color',
+        [
+            'label' => esc_html__( 'Background Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#5d5d5d',
+            'selectors' => [
+                '{{WRAPPER}} .slider-button:hover' => 'background-color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_tab();
+
+
+    // Border
+    $this->add_group_control(
+        \Elementor\Group_Control_Border::get_type(),
+        [
+            'name' => 'button_border',
+            'label' => esc_html__( 'Border', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-button',
+        ]
+    );
+
+    // Border Radius
+    $this->add_control(
+        'button_border_radius',
+        [
+            'label' => esc_html__( 'Border Radius', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'default' => [
+                'top' => '',
+                'right' => '',
+                'bottom' => '',
+                'left' => '',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Box Shadow
+    $this->add_group_control(
+        \Elementor\Group_Control_Box_Shadow::get_type(),
+        [
+            'name' => 'button_box_shadow',
+            'label' => esc_html__( 'Box Shadow', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-button',
+        ]
+    );
+
+    // Button Padding
+    $this->add_control(
+        'button_padding',
+        [
+            'label' => esc_html__( 'Padding', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'default' => [
+                'top' => '10',
+                'right' => '20',
+                'bottom' => '10',
+                'left' => '20',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_section();
