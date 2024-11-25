@@ -378,3 +378,213 @@
     );
 
     $this->end_controls_section();
+
+
+    /******************************* Title Styling *******************************/
+
+     $this->start_controls_section(
+        'title_style',
+        [
+            'label' => esc_html__( 'Title', 'nk-addon' ),
+            'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    // Alignment
+    $this->add_control(
+        'title_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-right',
+                ],
+            ],
+            'default' => 'left',
+            'selectors' => [
+                '{{WRAPPER}} .slider-title' => 'text-align: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Text Color
+    $this->add_control(
+        'title_color',
+        [
+            'label' => esc_html__( 'Text Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#333333',
+            'selectors' => [
+                '{{WRAPPER}} .slider-title' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Typography
+    $this->add_group_control(
+        \Elementor\Group_Control_Typography::get_type(),
+        [
+            'name' => 'title_typography',
+            'label' => esc_html__( 'Typography', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-title',
+        ]
+    );
+
+    // Margin
+    $this->add_control(
+        'title_margin',
+        [
+            'label' => esc_html__( 'Margin', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'default' => [
+                'top' => '0',
+                'right' => '0',
+                'bottom' => '0',
+                'left' => '0',
+                'unit' => 'px',
+                'isLinked' => false,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Padding
+    $this->add_control(
+        'title_padding',
+        [
+            'label' => esc_html__( 'Padding', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'default' => [
+                'top' => '0',
+                'right' => '0',
+                'bottom' => '0',
+                'left' => '0',
+                'unit' => 'px',
+                'isLinked' => false,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_section();
+
+
+    /******************************* Sub Title Styling *******************************/
+    // Sub Title Styling
+    $this->start_controls_section(
+        'sub_title_style',
+        [
+            'label' => esc_html__( 'Sub Title', 'nk-addon' ),
+            'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    // Alignment
+    $this->add_control(
+        'sub_title_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'nk-addon' ),
+                    'icon' => 'eicon-text-align-right',
+                ],
+            ],
+            'default' => 'left',
+            'selectors' => [
+                '{{WRAPPER}} .slider-sub-title' => 'text-align: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Text Color
+    $this->add_control(
+        'sub_title_color',
+        [
+            'label' => esc_html__( 'Text Color', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'default' => '#666666',
+            'selectors' => [
+                '{{WRAPPER}} .slider-sub-title' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+    // Typography
+    $this->add_group_control(
+        \Elementor\Group_Control_Typography::get_type(),
+        [
+            'name' => 'sub_title_typography',
+            'label' => esc_html__( 'Typography', 'nk-addon' ),
+            'selector' => '{{WRAPPER}} .slider-sub-title',
+        ]
+    );
+
+    // Margin
+    $this->add_control(
+        'sub_title_margin',
+        [
+            'label' => esc_html__( 'Margin', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'default' => [
+                'top' => '0',
+                'right' => '0',
+                'bottom' => '0',
+                'left' => '0',
+                'unit' => 'px',
+                'isLinked' => false,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-sub-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Padding
+    $this->add_control(
+        'sub_title_padding',
+        [
+            'label' => esc_html__( 'Padding', 'nk-addon' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'default' => [
+                'top' => '0',
+                'right' => '0',
+                'bottom' => '0',
+                'left' => '0',
+                'unit' => 'px',
+                'isLinked' => false,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-sub-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_section();

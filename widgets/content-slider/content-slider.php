@@ -138,7 +138,7 @@
             
                     // Render subtitle
                     if (!empty($item['sub_title'])) {
-                        echo '<h4 class="slider-subtitle">' . esc_html($item['sub_title']) . '</h4>';
+                        echo '<h4 class="slider-sub-title">' . esc_html($item['sub_title']) . '</h4>';
                     }
             
                     // Render description
