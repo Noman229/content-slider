@@ -226,4 +226,155 @@
     );
     
     $this->end_controls_section();
-    ?>
+
+
+    /******************************* Image Styling *******************************/
+
+    $this->start_controls_section(
+        'image_style_section',
+        [
+            'label' => esc_html__( 'Image', 'advance-widgets-for-elementor' ),
+            'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    // Alignment
+    $this->add_responsive_control(
+        'image_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'advance-widgets-for-elementor' ),
+                    'icon' => 'eicon-text-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'advance-widgets-for-elementor' ),
+                    'icon' => 'eicon-text-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'advance-widgets-for-elementor' ),
+                    'icon' => 'eicon-text-align-right',
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-image' => 'text-align: {{VALUE}};',
+            ],
+            'default' => 'center',
+        ]
+    );
+
+    // Width
+    $this->add_responsive_control(
+        'image_width',
+        [
+            'label' => esc_html__( 'Width', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%', 'px', 'vw' ],
+            'range' => [
+                'px' => [
+                    'min' => 10,
+                    'max' => 1000,
+                ],
+                '%' => [
+                    'min' => 10,
+                    'max' => 100,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-image img' => 'width: {{SIZE}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Max Width
+    $this->add_responsive_control(
+        'image_max_width',
+        [
+            'label' => esc_html__( 'Max Width', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%', 'px', 'vw' ],
+            'range' => [
+                'px' => [
+                    'min' => 10,
+                    'max' => 1000,
+                ],
+                '%' => [
+                    'min' => 10,
+                    'max' => 100,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-image img' => 'max-width: {{SIZE}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Height
+    $this->add_responsive_control(
+        'image_height',
+        [
+            'label' => esc_html__( 'Height', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ 'px', 'vh' ],
+            'range' => [
+                'px' => [
+                    'min' => 10,
+                    'max' => 1000,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-image img' => 'height: {{SIZE}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    // Object Fit (Conditionally Displayed)
+    $this->add_control(
+        'image_object_fit',
+        [
+            'label' => esc_html__( 'Object Fit', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'options' => [
+                'fill' => esc_html__( 'Fill', 'advance-widgets-for-elementor' ),
+                'cover' => esc_html__( 'Cover', 'advance-widgets-for-elementor' ),
+                'contain' => esc_html__( 'Contain', 'advance-widgets-for-elementor' ),
+                'none' => esc_html__( 'None', 'advance-widgets-for-elementor' ),
+                'scale-down' => esc_html__( 'Scale Down', 'advance-widgets-for-elementor' ),
+            ],
+            'default' => 'cover',
+            'selectors' => [
+                '{{WRAPPER}} .slider-item img' => 'object-fit: {{VALUE}};',
+            ],
+            // Conditional Display
+            'condition' => [
+                'image_height[size]!' => '', // Show only if a value is set for the height.
+            ],
+        ]
+    );
+
+    // Border Type
+    $this->add_group_control(
+        \Elementor\Group_Control_Border::get_type(),
+        [
+            'name' => 'image_border',
+            'label' => esc_html__( 'Border', 'advance-widgets-for-elementor' ),
+            'selector' => '{{WRAPPER}} .slider-image img',
+        ]
+    );
+
+    // Border Radius
+    $this->add_responsive_control(
+        'image_border_radius',
+        [
+            'label' => esc_html__( 'Border Radius', 'advance-widgets-for-elementor' ),
+            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'selectors' => [
+                '{{WRAPPER}} .slider-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    $this->end_controls_section();
